@@ -47,6 +47,11 @@ func (r *errResponse) Error(e string) *errResponse {
 	return r
 }
 
+func (r *errResponse) HttpCode(hc int) *errResponse {
+	r.httpCode = hc
+	return r
+}
+
 func (r *errResponse) ValidationErrors(errors map[string][]string) *errResponse {
 	for k, v := range errors {
 		for _, err := range v {
