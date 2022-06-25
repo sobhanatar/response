@@ -16,6 +16,7 @@ type response struct {
 	version       string
 	representedAt string
 	data          resData
+	httpCode      int
 }
 
 func NewSuccessResponse() *response {
@@ -59,6 +60,11 @@ func (r *response) Error(e string) *response {
 
 func (r *response) PerPage(pp int) *response {
 	r.data.perPage = pp
+	return r
+}
+
+func (r *response) HttpCode(hc int) *response {
+	r.httpCode = hc
 	return r
 }
 
