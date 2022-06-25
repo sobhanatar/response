@@ -62,18 +62,6 @@ func (r *response) PerPage(pp int) *response {
 	return r
 }
 
-func (r *response) ValidationErrors(errors []map[string]interface{}) *response {
-	for k, v := range errors {
-		for _, err := range v {
-			r.data.result = append(r.data.result, map[string]interface{}{
-				"field": k,
-				"error": err,
-			})
-		}
-	}
-	return r
-}
-
 func (r *response) Generate() map[string]interface{} {
 	resp := map[string]interface{}{
 		"message":        r.message,
