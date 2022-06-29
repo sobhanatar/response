@@ -65,6 +65,9 @@ func (r *errResponse) ValidationErrors(errors map[string][]string) *errResponse 
 }
 
 func (r *errResponse) Generate() map[string]interface{} {
+	if len(r.errors) == 0 {
+		r.errors = []map[string]interface{}{}
+	}
 	resp := map[string]interface{}{
 		"message":        r.message,
 		"error":          r.error,
