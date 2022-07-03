@@ -69,6 +69,9 @@ func (r *response) HttpCode(hc int) *response {
 }
 
 func (r *response) Generate() map[string]interface{} {
+	if len(r.data.result) == 0 {
+		r.data.result = []map[string]interface{}{}
+	}
 	resp := map[string]interface{}{
 		"message":        r.message,
 		"error":          r.error,
