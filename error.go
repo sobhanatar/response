@@ -16,7 +16,7 @@ type errResponse struct {
 func NewErrResponse() *errResponse {
 	return &errResponse{
 		version:       "v1",
-		representedAt: time.Now().Format("2006-01-02 15:04:05"),
+		representedAt: time.Now().Format("2006-01-02 15:04:05.000000"),
 	}
 }
 
