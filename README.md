@@ -5,7 +5,7 @@ This package takes data from developer and convert them into [convention format]
 
 ## Installation
 To install the package enter below command into you terminal:  
-`go get https://newgit.fidibo.com/fidiborearc/go/packages/response`
+`go get "newgit.fidibo.com/fidiborearc/go/packages/response"`
 ## Usage
 After installing the package, add import statement to you import section of file:
 
