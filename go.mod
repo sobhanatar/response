@@ -1,3 +1,3 @@
-module newgit.fidibo.com/fidiborearc/go/packages/response
+module github.com/sobhanatar/response
 
-go 1.18
+go 1.19
