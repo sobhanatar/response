@@ -7,7 +7,7 @@ import (
 type resData struct {
 	total   int
 	perPage int
-	result  []map[string]interface{}
+	result  interface{}
 }
 
 type response struct {
@@ -36,15 +36,13 @@ func (r *response) Version(v string) *response {
 	return r
 }
 
-func (r *response) Data(d []map[string]interface{}) *response {
-	for _, data := range d {
-		r.data.result = append(r.data.result, data)
-	}
+func (r *response) Data(d interface{}) *response {
+	r.data.result = d
 	return r
 }
 
-func (r *response) SingleData(d map[string]interface{}) *response {
-	r.data.result = append(r.data.result, d)
+func (r *response) SingleData(d interface{}) *response {
+	r.data.result = d
 	return r
 }
 
@@ -69,9 +67,6 @@ func (r *response) HttpCode(hc int) *response {
 }
 
 func (r *response) Generate() map[string]interface{} {
-	if len(r.data.result) == 0 {
-		r.data.result = []map[string]interface{}{}
-	}
 	resp := map[string]interface{}{
 		"message":        r.message,
 		"error":          r.error,
